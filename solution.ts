@@ -9,10 +9,17 @@ const formatValue = (value: string | number | boolean): string | number | boolea
     return !value;
 };
 
+console.log("Problem 1:", formatValue('hello'));
+console.log("Problem 1:", formatValue(5));
+console.log("Problem 1:", formatValue(true));
+
 //problem 2
 const getLength = (value: string | any[]): number => {
     return value.length;
 };
+
+console.log("Problem 2:", getLength('typescript'));
+console.log("Problem 2:", getLength([10, 20, 30, 40]));
 
 
 //problem 3
@@ -30,6 +37,12 @@ class Person {
     }
 }
 
+const person1 = new Person('John Doe', 30);
+console.log("Problem 3:", `'${person1.getDetails()}'`);
+
+const person2 = new Person('Alice', 25);
+console.log("Problem 3:", `'${person2.getDetails()}'`);
+
 //problem 4
 const filterByRating = (items: { title: string; rating: number }[]): { title: string; rating: number }[] => {
     return items.filter((item) => item.rating >= 4);
@@ -41,6 +54,8 @@ const books = [
     { title: 'Book C', rating: 5.0 },
 ];
 
+console.log("Problem 4:", filterByRating(books));
+
 //problem 5
 const filterActiveUsers = (users: { id: number; name: string; email: string; isActive: boolean }[]): { id: number; name: string; email: string; isActive: boolean }[] => {
     return users.filter((user) => user.isActive === true);
@@ -51,6 +66,8 @@ const users = [
     { id: 2, name: 'Asha', email: 'asha@example.com', isActive: false },
     { id: 3, name: 'Rumi', email: 'rumi@example.com', isActive: true },
 ];
+
+console.log("Problem 5:", filterActiveUsers(users));
 
 
 //problem 6
@@ -72,6 +89,8 @@ const myBook: Book = {
     publishedYear: 1925,
     isAvailable: true,
 };
+
+console.log("Problem 6:");
 printBookDetails(myBook);
 
 //problem 7
@@ -79,28 +98,32 @@ const getUniqueValues = (array1: (string | number)[], array2: (string | number)[
     const result: (string | number)[] = [];
 
     for (let i = 0; i < array1.length; i++) {
+        const value = array1[i];
+        if (value === undefined) continue;
         let found = false;
         for (let j = 0; j < result.length; j++) {
-            if (result[j] === array1[i]) {
+            if (result[j] === value) {
                 found = true;
                 break;
             }
         }
         if (!found) {
-            result.push(array1[i]);
+            result.push(value);
         }
     }
 
     for (let i = 0; i < array2.length; i++) {
+        const value = array2[i];
+        if (value === undefined) continue;
         let exists = false;
         for (let j = 0; j < result.length; j++) {
-            if (result[j] === array2[i]) {
+            if (result[j] === value) {
                 exists = true;
                 break;
             }
         }
         if (!exists) {
-            result.push(array2[i]);
+            result.push(value);
         }
     }
 
@@ -109,7 +132,7 @@ const getUniqueValues = (array1: (string | number)[], array2: (string | number)[
 
 const array1 = [1, 2, 3, 4, 5];
 const array2 = [3, 4, 5, 6, 7];
-const uniqueValues = getUniqueValues(array1, array2);
+console.log("Problem 7:", getUniqueValues(array1, array2));
 
 //problem 8
 const calculateTotalPrice = (products: { name: string; price: number; quantity: number; discount?: number }[]): number => {
@@ -132,4 +155,5 @@ const products = [
     { name: 'Notebook', price: 25, quantity: 3, discount: 10 },
     { name: 'Bag', price: 50, quantity: 1, discount: 20 },
 ];
-const totalPrice = calculateTotalPrice(products);
+
+console.log("Problem 8:", calculateTotalPrice(products));
