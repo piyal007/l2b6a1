@@ -51,3 +51,25 @@ const users = [
     { id: 2, name: 'Asha', email: 'asha@example.com', isActive: false },
     { id: 3, name: 'Rumi', email: 'rumi@example.com', isActive: true },
 ];
+
+
+//problem 6
+interface Book {
+    title: string;
+    author: string;
+    publishedYear: number;
+    isAvailable: boolean;
+}
+
+const printBookDetails = (book: Book): void => {
+    const status = book.isAvailable ? 'Yes' : 'No';
+    console.log(`Title: ${book.title}, Author: ${book.author}, Published: ${book.publishedYear}, Available: ${status}`);
+};
+
+const myBook: Book = {
+    title: 'The Great Gatsby',
+    author: 'F. Scott Fitzgerald',
+    publishedYear: 1925,
+    isAvailable: true,
+};
+printBookDetails(myBook);
