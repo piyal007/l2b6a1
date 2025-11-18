@@ -33,15 +33,15 @@ class Person {
     }
 
     getDetails(): string {
-        return `Name: ${this.name}, Age: ${this.age}`;
+        return `'Name: ${this.name}, Age: ${this.age}'`;
     }
 }
 
 const person1 = new Person('John Doe', 30);
-console.log("Problem 3:", `'${person1.getDetails()}'`);
+console.log("Problem 3:", person1.getDetails());
 
 const person2 = new Person('Alice', 25);
-console.log("Problem 3:", `'${person2.getDetails()}'`);
+console.log("Problem 3:", person2.getDetails());
 
 //problem 4
 const filterByRating = (items: { title: string; rating: number }[]): { title: string; rating: number }[] => {
