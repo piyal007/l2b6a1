@@ -73,3 +73,40 @@ const myBook: Book = {
     isAvailable: true,
 };
 printBookDetails(myBook);
+
+//problem 7
+const getUniqueValues = (array1: (string | number)[], array2: (string | number)[]): (string | number)[] => {
+    const result: (string | number)[] = [];
+
+    for (let i = 0; i < array1.length; i++) {
+        let found = false;
+        for (let j = 0; j < result.length; j++) {
+            if (result[j] === array1[i]) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            result.push(array1[i]);
+        }
+    }
+
+    for (let i = 0; i < array2.length; i++) {
+        let exists = false;
+        for (let j = 0; j < result.length; j++) {
+            if (result[j] === array2[i]) {
+                exists = true;
+                break;
+            }
+        }
+        if (!exists) {
+            result.push(array2[i]);
+        }
+    }
+
+    return result;
+};
+
+const array1 = [1, 2, 3, 4, 5];
+const array2 = [3, 4, 5, 6, 7];
+const uniqueValues = getUniqueValues(array1, array2);
