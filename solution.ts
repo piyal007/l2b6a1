@@ -110,3 +110,26 @@ const getUniqueValues = (array1: (string | number)[], array2: (string | number)[
 const array1 = [1, 2, 3, 4, 5];
 const array2 = [3, 4, 5, 6, 7];
 const uniqueValues = getUniqueValues(array1, array2);
+
+//problem 8
+const calculateTotalPrice = (products: { name: string; price: number; quantity: number; discount?: number }[]): number => {
+    if (products.length === 0) {
+        return 0;
+    }
+
+    return products.reduce((total, product) => {
+        const subtotal = product.price * product.quantity;
+        if (product.discount) {
+            const discountAmount = subtotal * (product.discount / 100);
+            return total + (subtotal - discountAmount);
+        }
+        return total + subtotal;
+    }, 0);
+};
+
+const products = [
+    { name: 'Pen', price: 10, quantity: 2 },
+    { name: 'Notebook', price: 25, quantity: 3, discount: 10 },
+    { name: 'Bag', price: 50, quantity: 1, discount: 20 },
+];
+const totalPrice = calculateTotalPrice(products);
