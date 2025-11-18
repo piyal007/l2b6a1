@@ -40,3 +40,14 @@ const books = [
     { title: 'Book B', rating: 3.2 },
     { title: 'Book C', rating: 5.0 },
 ];
+
+//problem 5
+const filterActiveUsers = (users: { id: number; name: string; email: string; isActive: boolean }[]): { id: number; name: string; email: string; isActive: boolean }[] => {
+    return users.filter((user) => user.isActive === true);
+};
+
+const users = [
+    { id: 1, name: 'Rakib', email: 'rakib@example.com', isActive: true },
+    { id: 2, name: 'Asha', email: 'asha@example.com', isActive: false },
+    { id: 3, name: 'Rumi', email: 'rumi@example.com', isActive: true },
+];
